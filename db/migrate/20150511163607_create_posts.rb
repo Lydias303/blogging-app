@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.string :author
-      t.string :status
+      t.string :status, default: "draft"
 
       t.timestamps null: false
     end

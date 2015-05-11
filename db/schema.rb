@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20150511163607) do
     t.string   "title"
     t.text     "body"
     t.string   "author"
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "status",     default: "draft"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
 end
