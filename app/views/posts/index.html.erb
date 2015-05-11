@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-10">
+    <h2>Blog Posts</h2>
+    <div class="post-form">
+      <%= bootstrap_form_for(@post) do |f| %>
+        <%= f.text_field :title %>
+        <%= f.text_field :author %>
+        <%= f.text_area :body %>
+        <%= f.submit "New Post" %>
+      <% end %>
+    </div>
+    <div class="well">
+      <ul class="post-display">
+        <% @posts.each do |post| %>
+        <li class="title"><%= post.title %></li>
+        <li class="body"><%= post.body %></li>
+        <li class="author"><%= post.author %></li>
+        <li><%= post.status %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

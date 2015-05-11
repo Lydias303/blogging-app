@@ -16,7 +16,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "twitter-bootstrap-rails"
 
+gem 'bootstrap_form'
+
 group :development, :test do
+
+  gem 'capybara'
 
   gem 'rspec-rails', '~> 3.0'
 
