@@ -9,11 +9,15 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Post Created!"
-      redirect_to drafts_index_path
+      redirect_to draft_path(@post)
     else
       flash[:error] = "Unable to create Post!"
       redirect_to root_path
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private

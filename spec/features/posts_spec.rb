@@ -53,20 +53,46 @@ describe "posts index", :type => :feature do
     end
   end
 
-  xit "can display a published post created with markdown" do
+  it "can display a published post created with markdown" do
     visit '/'
 
     within(".post-form") do
       fill_in 'Title', with: 'New Post'
-      fill_in 'Body', with: '## This is an H2'
+      fill_in 'Body', with: '##### This is an H5'
       fill_in 'Author', with: 'Bro'
       click_button 'New Post'
     end
 
     expect(page).to have_content('Post Created!')
-    expect(current_path).to eq('/draft')
-    within('h2') do
-      expect(page).to have_content('This is an H2')
+
+    within('.publish-button') do
+      click_link_or_button 'Publish Post'
     end
+
+    expect(current_path).to eq('/')
+
+    within('h5') do
+      expect(page).to have_content('This is an H5')
+    end
+  end
+
+  it "can go to a post show" do
+    newpost = create(:post, title: 'new')
+    visit '/'
+    click_link_or_button 'new'
+
+    expect(current_path).to eq(post_path(newpost))
+  end
+
+  it "can change status back to draft" do
+    newpost = create(:post, title: 'new')
+    visit '/'
+    click_link_or_button 'new'
+
+    expect(page).to have_content(newpost.title)
+
+    click_link_or_button 'Mark as Draft'
+    expect(current_path).to eq(drafts_path)
+    expect(page).to have_content('Post has been reverted to draft')
   end
 end

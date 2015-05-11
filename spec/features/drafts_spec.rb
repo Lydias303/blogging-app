@@ -6,7 +6,7 @@ describe "drafts index", :type => :feature do
   end
 
   it "only displays drafts" do
-    visit '/draft'
+    visit '/drafts'
     published_post = create(:post, status: 'published', title: 'Im published!')
     expect(page).to have_content('Draft Posts')
 
@@ -21,14 +21,14 @@ describe "drafts index", :type => :feature do
 
     within(".post-form") do
       fill_in 'Title', with: 'New Post'
-      fill_in 'Body', with: '## This is an H2'
+      fill_in 'Body', with: '##### This is an H5'
       fill_in 'Author', with: 'Bro'
       click_button 'New Post'
     end
     expect(page).to have_content('Post Created!')
-    expect(current_path).to eq('/draft')
-    within('h2') do
-      expect(page).to have_content('This is an H2')
+
+    within('h5') do
+      expect(page).to have_content('This is an H5')
     end
   end
 end

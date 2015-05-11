@@ -18,4 +18,15 @@ class DraftsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.update_attribute(:status, 'draft')
+      flash[:notice] = "Post has been reverted to draft"
+      redirect_to drafts_path
+    else
+      flash[:error] = "Unable to revert post to draft"
+      redirect_to root_path
+    end
+  end
 end
