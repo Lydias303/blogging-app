@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Post Created!"
-      redirect_to root_path
+      redirect_to draft_index_path
     else
       flash[:error] = "Unable to create Post!"
       redirect_to root_path
