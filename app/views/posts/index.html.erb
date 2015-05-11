@@ -12,11 +12,12 @@
     <div class="well">
       <ul class="post-display">
         <% @posts.each do |post| %>
-        <li class="title"><%= post.title %></li>
+        <li class="title"><h4><%= post.title %></h4></li>
         <li class="body"><%= post.body %></li>
         <li class="author"><%= post.author %></li>
         <li><%= post.status %></li>
         <% end %>
+        <br/>
       </ul>
     </div>
   </div>

@@ -3,6 +3,6 @@ FactoryGirl.define do
     title "My Post"
     body "This is a post!"
     author "John"
-    status "draft"
+    status "published"
   end
 end

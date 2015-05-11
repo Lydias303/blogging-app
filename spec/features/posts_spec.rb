@@ -41,4 +41,15 @@ describe "posts index", :type => :feature do
     end
     expect(page).to have_content("Unable to create Post!")
   end
+
+  it "only shows published posts on the main page" do
+    visit '/'
+
+    draft_post = create(:post, title: "Im not published!", status: "draft")
+
+    within(".title") do
+      expect(page).to_not have_content("Im not published!")
+      expect(page).to have_content("My Post")
+    end
+  end
 end
