@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :post do
-    title "MyString"
-body "MyText"
-author "MyString"
-status "MyString"
+    title "My Post"
+    body "This is a a post!"
+    author "John"
+    status "draft"
   end
-
 end
