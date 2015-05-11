@@ -52,4 +52,21 @@ describe "posts index", :type => :feature do
       expect(page).to have_content("My Post")
     end
   end
+
+  xit "can display a published post created with markdown" do
+    visit '/'
+
+    within(".post-form") do
+      fill_in 'Title', with: 'New Post'
+      fill_in 'Body', with: '## This is an H2'
+      fill_in 'Author', with: 'Bro'
+      click_button 'New Post'
+    end
+
+    expect(page).to have_content('Post Created!')
+    expect(current_path).to eq('/draft')
+    within('h2') do
+      expect(page).to have_content('This is an H2')
+    end
+  end
 end
