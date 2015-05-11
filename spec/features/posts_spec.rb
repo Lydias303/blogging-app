@@ -9,7 +9,7 @@ describe "posts index", :type => :feature do
     visit '/'
     expect(page).to have_content('Blog Posts')
 
-    within(".body") do
+    within(".post-body") do
       expect(page).to have_content('This is a post!')
     end
 

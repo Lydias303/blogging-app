@@ -4,6 +4,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'simplecov'
+SimpleCov.start
 
 ActiveRecord::Migration.maintain_test_schema!
 

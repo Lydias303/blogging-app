@@ -13,7 +13,7 @@
       <ul class="post-display">
         <% @posts.each do |post| %>
         <li class="title"><h4><%= post.title %></h4></li>
-        <li class="body"><%= markdown post.body %></li>
+        <li class="post-body"><%= markdown(post.body).html_safe %></li>
         <li class="author"><%= post.author %></li>
         <li><%= post.status %></li>
         <% end %>
