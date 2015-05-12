@@ -13,6 +13,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    flash[:notice] = "Comment Has been Deleted"
+    redirect_to :back
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
   private
 
   def comment_params
