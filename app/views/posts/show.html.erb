@@ -9,3 +9,12 @@
     </ul>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 well">
+    <%= bootstrap_form_for [@post, @comment] do |f| %>
+      <%= f.text_field :body %>
+      <%= f.text_field :author_name %>
+      <%= f.submit "Add Comment" %>
+    <% end %>
+  </div>
+</div>
