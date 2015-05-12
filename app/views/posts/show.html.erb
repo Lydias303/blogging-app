@@ -18,3 +18,11 @@
     <% end %>
   </div>
 </div>
+<div class="row">
+  <% @comments.each do |comment| %>
+    <div class="col-md-8 col-md-offset-2 well">
+      <h3><%= comment.body %></h3>
+      <h5> <%= comment.author_name %></h5>
+    </div>
+  <% end %>
+</div>
