@@ -326,6 +326,41 @@
         null,
         null
       ],
+      "/Users/lydiashafer/blogging-app/spec/models/comment_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/lydiashafer/blogging-app/app/models/comment.rb": [
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
       "/Users/lydiashafer/blogging-app/spec/models/post_spec.rb": [
         1,
         null,
@@ -373,6 +408,8 @@
       "/Users/lydiashafer/blogging-app/app/models/post.rb": [
         1,
         1,
+        null,
+        1,
         1,
         null,
         15,
@@ -380,6 +417,6 @@
         null
       ]
     },
-    "timestamp": 1431390252
+    "timestamp": 1431392316
   }
 }
