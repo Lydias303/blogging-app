@@ -38,13 +38,9 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    if @post.destroy
-      flash[:notice] = "Post Deleted!"
-      redirect_to root_path
-    else
-      flash[:error] = "Unable to delete Post!"
-      redirect_to root_path
-    end
+    @post.destroy
+    flash[:notice] = "Post Deleted!"
+    redirect_to root_path
   end
 
   private

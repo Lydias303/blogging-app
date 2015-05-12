@@ -76,4 +76,17 @@ describe "drafts show", :type => :feature do
     expect(current_path).to eq('/')
     expect(Post.count).to eq(0)
   end
+
+  it "will error if it cannot be updated" do
+    blog_post = create(:post, status: 'draft')
+    visit edit_post_path(blog_post)
+
+    within(".post-edit-form") do
+      fill_in 'Title', with: ''
+      fill_in 'Author', with: 'HEYO'
+      click_button 'Update Post'
+    end
+    expect(page).to have_content('Unable to update Post!')
+    expect(current_path).to eq('/')
+  end
 end
