@@ -8,7 +8,7 @@
     <div class="well">
       <ul class="post-display">
         <% @posts.each do |post| %>
-        <li class="title"><h4><%= link_to post.title, drafts_path(post) %></h4></li>
+        <li class="title"><h4><%= link_to post.title, draft_path(post) %></h4></li>
         <li class="post-body"><%= markdown(post.body).html_safe %></li>
         <li class="author"><%= post.author %></li>
         <li><%= post.status %></li>

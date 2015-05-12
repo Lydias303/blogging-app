@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 well">
+    <ul>
+    <li><h3> <%= @post.title %> <span class="author-show">By <%= @post.author %></span></h3></li>
+    <li class="post-body"><%= markdown(@post.body).html_safe %></li>
+    <li class="publish-button"><%= link_to 'Publish Post', drafts_path(post_id: @post.id), method: 'post' %></li>
+    <li class="edit-post"><%= link_to 'Edit', edit_post_path(@post) %></li>
+    <li class="edit-post"><%= link_to 'Delete', post_path(@post), method: 'delete' %></li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="well post-edit-form">
+  <%= bootstrap_form_for(@post) do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_area :body %>
+    <%= f.text_field :author %>
+    <%= f.submit 'Update Post' %>
+  <% end %>
+</div>
