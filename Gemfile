@@ -20,6 +20,10 @@ gem 'bootstrap_form'
 
 gem 'redcarpet', '~> 3.0.0'
 
+gem "paperclip", "~> 4.2"
+
+gem 'aws-sdk'
+
 group :development, :test do
 
   gem 'capybara'
@@ -35,7 +39,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   gem 'spring'
-  
+
 end
 
 gem 'simplecov', :require => false, :group => :test
