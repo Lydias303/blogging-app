@@ -3,10 +3,10 @@ require 'rails_helper'
 describe "posts index", :type => :feature do
   before :each do
     post = create(:post)
+    visit '/'
   end
 
   it "has all posts displayed on index" do
-    visit '/'
     expect(page).to have_content('Blog Posts')
 
     within(".post-body") do
@@ -19,7 +19,6 @@ describe "posts index", :type => :feature do
   end
 
   it "can create a new post" do
-    visit '/'
 
     within(".post-form") do
       fill_in 'Title', with: 'New Post'
@@ -31,7 +30,6 @@ describe "posts index", :type => :feature do
   end
 
   it "wont create a new post with missing params" do
-    visit '/'
 
     within(".post-form") do
       fill_in 'Title', with: ''
@@ -43,7 +41,6 @@ describe "posts index", :type => :feature do
   end
 
   it "only shows published posts on the main page" do
-    visit '/'
 
     draft_post = create(:post, title: "Im not published!", status: "draft")
 
@@ -54,7 +51,6 @@ describe "posts index", :type => :feature do
   end
 
   it "can display a published post created with markdown" do
-    visit '/'
 
     within(".post-form") do
       fill_in 'Title', with: 'New Post'
@@ -74,25 +70,5 @@ describe "posts index", :type => :feature do
     within('h5') do
       expect(page).to have_content('This is an H5')
     end
-  end
-
-  it "can go to a post show" do
-    newpost = create(:post, title: 'new')
-    visit '/'
-    click_link_or_button 'new'
-
-    expect(current_path).to eq(post_path(newpost))
-  end
-
-  it "can change status back to draft" do
-    newpost = create(:post, title: 'new')
-    visit '/'
-    click_link_or_button 'new'
-
-    expect(page).to have_content(newpost.title)
-
-    click_link_or_button 'Mark as Draft'
-    expect(current_path).to eq(drafts_path)
-    expect(page).to have_content('Post has been reverted to draft')
   end
 end
