@@ -18,6 +18,7 @@
             <td class="post-body"><%= markdown(post.body).html_safe %></td>
             <td class="author"><%= post.author %></td>
             <td><%= post.comments.count %></td>
+            <td>tag</td>
           </tr>
         <% end %>
       </tbody>
@@ -30,17 +31,6 @@
         <%= f.file_field :avatar %>
         <%= f.submit "New Post" %>
       <% end %>
-    </div>
-    <div class="well">
-      <ul class="post-display">
-        <% @posts.each do |post| %>
-        <li class="title"><h4><%= link_to post.title, post_path(post) %></h4></li>
-        <li class="post-body"><%= markdown(post.body).html_safe %></li>
-        <li class="author"><%= post.author %></li>
-        <li><%= post.status %></li>
-        <% end %>
-        <br/>
-      </ul>
     </div>
   </div>
 </div>
