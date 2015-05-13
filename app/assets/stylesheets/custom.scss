@@ -21,9 +21,11 @@ body{
 }
 
 .btn {
-    border: 0 none;
-    font-weight: 400;
-    text-transform: uppercase;
+  background-color: #0bacd3;
+  border: 0 none;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-bottom:2px solid #098aa9;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -110,4 +112,14 @@ a.color-links.filter-tag:hover {
 a.color-links:hover {
   color: #5dd9b1;
   text-decoration: none;
+}
+
+.tag-title {
+  margin-left: 100px;
+  margin-bottom: 50px;
+}
+
+.tag-header {
+  font-size: 70px;
+  font-weight: 700;
 }

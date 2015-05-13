@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 well">
     <ul>
-      <li><h1> <%= @post.title %><%= image_tag @post.avatar.url(:square), class: "img-circle draft-img" %></h1></li>
+      <li><h1><span class="post-title-show"><%= @post.title %></span><%= image_tag @post.avatar.url(:square), class: "img-circle draft-img" %></h1></li>
       <li class="post-body"><%= markdown(@post.body).html_safe %></li>
       <li><h5> By <%= @post.author %></h5></li>
       <li><h5><%= @post.print_tags %></h5></li>
