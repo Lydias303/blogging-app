@@ -16,6 +16,7 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require twitter/bootstrap
 //= require_tree .
+
 $( document ).ready(function() {
   $('#post-table').DataTable({});
 
