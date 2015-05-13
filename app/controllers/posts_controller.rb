@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+  include PostsHelper
   def index
     @post = Post.new
     @posts = Post.published
@@ -9,9 +9,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      params[:post][:tags].reject(&:empty?).each do |tag|
-        @post.tags << Tag.find(tag)
-      end
+      save_tags(params[:post][:tags], @post)
+
       flash[:notice] = "Post Created!"
       redirect_to draft_path(@post)
     else
@@ -45,6 +44,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+
     flash[:notice] = "Post Deleted!"
     redirect_to root_path
   end

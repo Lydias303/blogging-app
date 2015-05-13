@@ -1,8 +1,8 @@
 <div class="well post-edit-form">
   <%= bootstrap_form_for(@post) do |f| %>
-    <%= f.text_field :title %>
-    <%= f.text_area :body %>
-    <%= f.text_field :author %>
+    <%= f.text_field :title, required: true %>
+    <%= f.text_area :body, required: true %>
+    <%= f.text_field :author, required: true %>
     <%= f.select :tags, Tag.all.collect { |p| [p.name, p.id] }, {}, { multiple: true } %>
     <%= f.submit 'Update Post' %>
   <% end %>

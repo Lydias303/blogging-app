@@ -1,19 +1,19 @@
 class CommentsController < ApplicationController
-
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
+    
     respond_to do |format|
-    if @post && @comment.save
-      @post.comments << @comment
-      format.html { redirect_to post_path(@post), notice: 'Your Comment Has Been Added'}
-      format.js   {}
-      format.json { render json: @comment, status: :created, location: @comment}
-    else
-      format.html { redirect_to post_path(@post), notice: 'Unable to add Comment'}
+      if @post && @comment.save
+        @post.comments << @comment
+        format.html { redirect_to post_path(@post), notice: 'Your Comment Has Been Added'}
+        format.js   {}
+        format.json { render json: @comment, status: :created, location: @comment}
+      else
+        format.html { redirect_to post_path(@post), notice: 'Unable to add Comment'}
+      end
     end
   end
-end
 
   def destroy
     @comment = Comment.find(params[:id])
