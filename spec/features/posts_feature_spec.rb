@@ -19,11 +19,14 @@ describe "posts index", :type => :feature do
   end
 
   it "can create a new post" do
+    tag = create(:tag)
+    visit '/'
 
     within(".post-form") do
       fill_in 'Title', with: 'New Post'
       fill_in 'Body', with: 'Nice Bod'
       fill_in 'Author', with: 'Bro'
+      select(tag.name, :from => 'Tags')
       click_button 'New Post'
     end
     expect(page).to have_content("Post Created!")

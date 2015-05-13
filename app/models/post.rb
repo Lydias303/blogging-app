@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-  has_many :comments, dependent: :destroy
+  has_many          :comments, dependent: :destroy
+  has_many          :posts_tags
+  has_many          :tags, :through => :posts_tags
   has_attached_file :avatar, styles: {
     thumb: '100x100>',
     square: '200x200#',
@@ -12,4 +14,8 @@ class Post < ActiveRecord::Base
 
   scope :published, -> {where(status: 'published')}
   scope :draft, -> {where(status: 'draft')}
+
+  def print_tags
+    tags.map(&:name).join(", ")
+  end
 end
