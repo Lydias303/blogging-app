@@ -19,16 +19,24 @@ end
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+
     flash[:notice] = "Comment Has been Deleted"
     redirect_to :back
   end
 
   def edit
-
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
 
+    if @comment.update_attributes(comment_params)
+      flash[:notice] = "Comment Updated!"
+      redirect_to post_path(@post)
+    end
   end
 
   private

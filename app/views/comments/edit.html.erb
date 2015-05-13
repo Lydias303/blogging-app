@@ -1,0 +1,5 @@
+<%= bootstrap_form_for [@post, @comment] do |f| %>
+  <%= f.text_area :body %>
+  <%= f.text_field :author_name %>
+  <%= f.submit "Update Comment" %>
+<% end %>
