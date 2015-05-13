@@ -6,7 +6,6 @@
         <tr>
           <th>Title</th>
           <th>Author</th>
-          <th>Body</th>
           <th>Number of Comments</th>
           <th>Tags</th>
         </tr>
@@ -15,7 +14,6 @@
         <% @posts.each do |post| %>
           <tr>
             <td class="title"><%= link_to post.title, draft_path(post) %></td>
-            <td class="post-body"><%= markdown(post.body).html_safe %></td>
             <td class="author"><%= post.author %></td>
             <td><%= post.comments.count %></td>
             <td><%= post.print_tags %></td>
