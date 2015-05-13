@@ -39,6 +39,13 @@ body{
   border-bottom:2px solid #098aa9;
 }
 
+.btn-sky-tag {
+  background-color: #0bacd3;
+  border-bottom:2px solid #098aa9;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
 .btn-fresh {
   background-color: #51bf87;
   border-bottom:2px solid #41996c;
@@ -79,4 +86,28 @@ form#new_post.new_post {
 
 li {
   list-style-type: none;
+}
+
+.title {
+  font-size: 18px;
+}
+
+.post-table-data td a {
+  color: black;
+  text-decoration: none;
+}
+
+.post-table-data td a:hover {
+  color: #5dd9b1;
+  text-decoration: none;
+}
+
+a.color-links.filter-tag:hover {
+  color: #5dd9b1;
+  text-decoration: none;
+}
+
+a.color-links:hover {
+  color: #5dd9b1;
+  text-decoration: none;
 }
