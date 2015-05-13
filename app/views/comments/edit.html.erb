@@ -1,7 +1,7 @@
 <div class="edit-comment">
   <%= bootstrap_form_for [@post, @comment] do |f| %>
-    <%= f.text_area :body %>
-    <%= f.text_field :author_name %>
+    <%= f.text_area :body, required: true %>
+    <%= f.text_field :author_name, required: true %>
     <%= f.submit "Update Comment" %>
   <% end %>
 </div>

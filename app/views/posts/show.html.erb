@@ -11,8 +11,8 @@
 </div>
   <div class="col-md-4 well comment-create">
     <%= bootstrap_form_for [@post, @comment], remote: true do |f| %>
-      <%= f.text_area :body %>
-      <%= f.text_field :author_name %>
+      <%= f.text_area :body, required: true %>
+      <%= f.text_field :author_name, required: true %>
       <%= f.submit "Add Comment" %>
     <% end %>
 
