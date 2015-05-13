@@ -1,5 +1,6 @@
 body{
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Droid Sans', sans-serif;
+  background: url(/assets/cat-astro.jpg);
 }
 
 .author-show {
@@ -46,4 +47,19 @@ body{
 .btn-sunny {
   background-color: #f4ad49;
   border-bottom:2px solid #c38a3a;
+}
+#new-post-form.navbar-nav>li {
+  width: 1160px;
+}
+
+form#new_post.new_post {
+  width: 900px;
+}
+
+.img-circle {
+  margin-left: 400px;
+}
+
+.well {
+  background: rgba(59, 205, 228, 0.3);
 }

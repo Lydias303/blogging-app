@@ -1,11 +1,12 @@
 <div class="row">
   <div class="col-md-7 well post-show">
     <ul>
-      <li><h3> <%= @post.title %> <span class="author-show">By <%= @post.author %><%= image_tag @post.avatar.url(:square), class: "img-circle"%></span></h3></li>
+      <li><h1> <%= @post.title %><%= image_tag @post.avatar.url(:square), class: "img-circle"%></h1></li>
       <li class="post-body"><%= markdown(@post.body).html_safe %></li>
+      <li><span class="author-show">By <%= @post.author %></span></li>
       <li id="edit-post" type="button" class="btn btn-fresh btn-sm"><%= link_to 'Edit', edit_post_path(@post), class: 'color-links' %></li>
-      <li id="delete-post" type="button" class="btn btn-sunny btn-sm"><%= link_to 'Delete', post_path(@post), method: 'delete', class: 'color-links' %></li>
-      <li id="mark-draft" type="button" class="btn btn-sky btn-sm"><%= link_to 'Mark as Draft', draft_path(@post), method: 'delete', class: 'color-links' %></li>
+      <li id="delete-post" type="button" class="btn btn-sunny btn-sm"><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, post_path(@post), method: 'delete', class: 'color-links' %></li>
+      <li id="mark-draft" type="button" class="btn btn-sky btn-sm"><%= link_to '<i class="fa fa-arrow-circle-o-left"></i> Draft'.html_safe, draft_path(@post), method: 'delete', class: 'color-links' %></li>
     </ul>
 </div>
   <div class="col-md-4 well comment-create">
