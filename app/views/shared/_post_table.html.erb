@@ -8,14 +8,22 @@
       <th>Tags</th>
     </tr>
   </thead>
+  <tfoot>
+    <tr>
+      <div type="button" class="btn btn-sunny btn-xs text-uppercase"><%= link_to 'All', '#', class: 'color-links filter-tag' %></div>
+      <% @tags.each do |tag| %>
+        <div type="button" class="btn btn-sunny btn-xs text-uppercase"><%= link_to tag.name, '#', class: 'color-links filter-tag' %></div>
+      <% end %>
+    </tr>
+  </tfoot>
   <tbody>
     <% posts.each do |post| %>
-      <tr>
+      <tr class="post-table-data">
         <td class="title"><%= link_to post.title, post_path(post) %></td>
         <td class="post-body"><%= markdown(post.body).html_safe %></td>
         <td class="author"><%= post.author %></td>
         <td><%= post.comments.count %></td>
-        <td><%= post.print_tags %></td>
+        <td class="post-tag"><%= post.print_tags %></td>
       </tr>
     <% end %>
   </tbody>

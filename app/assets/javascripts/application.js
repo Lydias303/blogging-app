@@ -17,15 +17,16 @@
 //= require twitter/bootstrap
 //= require_tree .
 $( document ).ready(function() {
-  $('#post-table').DataTable({
-    // ajax: ...,
-    // autoWidth: false,
-    // pagingType: 'full_numbers',
-    // processing: true,
-    // serverSide: true,
+  $('#post-table').DataTable({});
 
-    // Optional, if you want full pagination controls.
-    // Check dataTables documentation to learn more about available options.
-    // http://datatables.net/reference/option/pagingType
+  $('a.filter-tag').on('click', function(e) {
+    e.preventDefault();
+    var tag = $(this).text();
+    if ( tag == 'All') {
+      $("#post-table td.post-tag").parent().show();
+    } else {
+      $("#post-table td.post-tag:contains('" + tag +"')").parent().show();
+      $("#post-table td.post-tag:not(:contains('" + tag +"'))").parent().hide();
+    }
   });
 });
