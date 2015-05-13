@@ -9,7 +9,7 @@
   <div class="col-md-4 col-md-offset-1 well tag-index">
     <ul>
       <% @tags.each do |tag| %>
-        <li><%= tag.name %></li>
+        <li><%= tag.name %> <%= link_to 'Delete', tag_path(tag), method: 'delete' %></li>
       <% end %>
     </ul>
   </div>

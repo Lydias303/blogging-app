@@ -8,6 +8,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      params[:post][:tags].reject(&:empty?).each do |tag|
+        @post.tags << Tag.find(tag)
+      end
       flash[:notice] = "Post Created!"
       redirect_to draft_path(@post)
     else

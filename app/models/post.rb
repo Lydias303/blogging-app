@@ -14,4 +14,8 @@ class Post < ActiveRecord::Base
 
   scope :published, -> {where(status: 'published')}
   scope :draft, -> {where(status: 'draft')}
+
+  def print_tags
+    tags.map(&:name).join(", ")
+  end
 end
