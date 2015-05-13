@@ -5,7 +5,7 @@
       <li class="post-body"><%= markdown(@post.body).html_safe %></li>
       <li><span class="author-show">By <%= @post.author %></span></li>
       <li id="edit-post" type="button" class="btn btn-fresh btn-sm"><%= link_to 'Edit', edit_post_path(@post), class: 'color-links' %></li>
-      <li id="delete-post" type="button" class="btn btn-sunny btn-sm"><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, post_path(@post), method: 'delete', class: 'color-links' %></li>
+      <li id="delete-post" type="button" class="btn btn-sunny btn-sm"><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, post_path(@post), method: 'delete', class: 'color-links delete-button' %></li>
       <li id="mark-draft" type="button" class="btn btn-sky btn-sm"><%= link_to '<i class="fa fa-arrow-circle-o-left"></i> Draft'.html_safe, draft_path(@post), method: 'delete', class: 'color-links' %></li>
     </ul>
 </div>
@@ -20,7 +20,7 @@
       <div class="well comment-index">
         <h3><%= markdown(comment.body).html_safe %></h3>
         <h5><%= markdown(comment.author_name).html_safe %> <%= comment.updated_at %></h5>
-        <div id="delete-comment" type="button" class="btn btn-sunny btn-xs text-uppercase"><%= link_to 'Delete Comment', post_comment_path(@post, comment), method: 'delete', class: 'color-links' %></div>
+        <div id="delete-comment" type="button" class="btn btn-sunny btn-xs text-uppercase"><%= link_to 'Delete Comment', post_comment_path(@post, comment), method: 'delete', class: 'color-links delete-button' %></div>
         <div id="delete" type="button" class="btn btn-sky btn-xs text-uppercase"><%= link_to 'Edit Comment', edit_post_comment_path(@post, comment), class: 'color-links' %></div>
       </div>
     <% end %>

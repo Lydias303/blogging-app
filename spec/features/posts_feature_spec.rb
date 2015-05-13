@@ -22,7 +22,7 @@ describe "posts index", :type => :feature do
     tag = create(:tag)
     visit '/'
 
-    within(".post-form") do
+    within(".new_post") do
       fill_in 'Title', with: 'New Post'
       fill_in 'Body', with: 'Nice Bod'
       fill_in 'Author', with: 'Bro'
@@ -34,7 +34,7 @@ describe "posts index", :type => :feature do
 
   it "wont create a new post with missing params" do
 
-    within(".post-form") do
+    within(".new_post") do
       fill_in 'Title', with: ''
       fill_in 'Body', with: 'Heyyo'
       fill_in 'Author', with: ''
@@ -55,7 +55,7 @@ describe "posts index", :type => :feature do
 
   it "can display a published post created with markdown" do
 
-    within(".post-form") do
+    within(".new_post") do
       fill_in 'Title', with: 'New Post'
       fill_in 'Body', with: '##### This is an H5'
       fill_in 'Author', with: 'Bro'
@@ -64,9 +64,7 @@ describe "posts index", :type => :feature do
 
     expect(page).to have_content('Post Created!')
 
-    within('.publish-button') do
-      click_link_or_button 'Publish Post'
-    end
+    page.find('.publish-button').click
 
     expect(current_path).to eq('/')
 

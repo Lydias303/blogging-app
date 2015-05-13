@@ -10,8 +10,7 @@ class CommentsController < ApplicationController
       format.js   {}
       format.json { render json: @comment, status: :created, location: @comment}
     else
-      flash[:notice] = "Unable to add Comment"
-      redirect_to post_path(@post)
+      format.html { redirect_to post_path(@post), notice: 'Unable to add Comment'}
     end
   end
 end

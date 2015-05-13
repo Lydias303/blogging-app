@@ -17,7 +17,7 @@ describe "posts show", :type => :feature do
 
     expect(page).to have_content('My Post')
 
-    click_link_or_button 'Mark as Draft'
+    click_link_or_button 'Draft'
     expect(current_path).to eq(drafts_path)
     expect(page).to have_content('Post has been reverted to draft')
   end
@@ -54,7 +54,7 @@ describe "posts show", :type => :feature do
   it "can delete a published post" do
     expect(Post.count).to eq(1)
 
-    click_link_or_button 'Delete'
+    page.find('.delete-button').click
 
     expect(current_path).to eq('/')
     expect(Post.count).to eq(0)
