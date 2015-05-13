@@ -7,6 +7,7 @@
         <%= f.text_field :author %>
         <%= f.text_area  :body %>
         <%= f.file_field :avatar %>
+        <%= f.select :tags, Tag.all.collect { |p| [p.name, p.id] }, {}, { multiple: true } %>
         <%= f.submit "New Post" %>
       <% end %>
     </div>
@@ -16,6 +17,7 @@
         <li class="title"><h4><%= link_to post.title, post_path(post) %></h4></li>
         <li class="post-body"><%= markdown(post.body).html_safe %></li>
         <li class="author"><%= post.author %></li>
+        <li><%= post.tags.first %></li>
         <li><%= post.status %></li>
         <% end %>
         <br/>

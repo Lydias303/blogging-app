@@ -26,6 +26,8 @@ gem 'aws-sdk', '< 2.0'
 
 gem "figaro"
 
+gem 'pry'
+
 group :development, :test do
 
   gem 'capybara'
