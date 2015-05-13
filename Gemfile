@@ -26,6 +26,8 @@ gem 'aws-sdk', '< 2.0'
 
 gem "figaro"
 
+gem 'jquery-datatables-rails', '~> 3.3.0'
+
 group :development, :test do
 
   gem 'capybara'
