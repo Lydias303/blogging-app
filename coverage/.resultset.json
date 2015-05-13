@@ -28,8 +28,8 @@
         null,
         null,
         1,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         1,
@@ -118,9 +118,9 @@
         null,
         null,
         1,
-        16,
-        16,
-        16,
+        18,
+        18,
+        18,
         null,
         null,
         1,
@@ -197,8 +197,8 @@
         null,
         1,
         1,
-        4,
-        4,
+        5,
+        5,
         null,
         null,
         1,
@@ -229,6 +229,17 @@
         1,
         1,
         null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
         null,
         null,
         1,
@@ -640,19 +651,6 @@
         null,
         null
       ],
-      "/Users/lydiashafer/blogging-app/spec/models/posts_tag_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Users/lydiashafer/blogging-app/app/models/posts_tag.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
       "/Users/lydiashafer/blogging-app/spec/models/tag_spec.rb": [
         1,
         null,
@@ -676,8 +674,14 @@
         null,
         1,
         null
+      ],
+      "/Users/lydiashafer/blogging-app/app/models/posts_tag.rb": [
+        1,
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1431550168
+    "timestamp": 1431550482
   }
 }
