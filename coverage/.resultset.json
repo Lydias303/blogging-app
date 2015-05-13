@@ -514,7 +514,13 @@
       "/Users/lydiashafer/blogging-app/app/models/post.rb": [
         1,
         1,
+        1,
         null,
+        null,
+        null,
+        null,
+        null,
+        1,
         1,
         1,
         null,
@@ -523,6 +529,6 @@
         null
       ]
     },
-    "timestamp": 1431407576
+    "timestamp": 1431487758
   }
 }
