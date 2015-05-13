@@ -11,7 +11,7 @@
   <div class="col-md-4 col-md-offset-1 well tag-index">
     <ul>
       <% @tags.each do |tag| %>
-        <li><%= tag.name %> <%= link_to 'Delete', tag_path(tag), method: 'delete' %></li>
+      <li><h4><%= tag.name %> <span id="delete-tag" type="button" class="btn btn-sunny btn-xs"><%= link_to 'Delete', tag_path(tag), method: 'delete', class: 'color-links tag-delete-button' %></span></h4></li>
       <% end %>
     </ul>
   </div>
