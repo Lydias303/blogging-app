@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
+    
     respond_to do |format|
       if @post && @comment.save
         @post.comments << @comment
