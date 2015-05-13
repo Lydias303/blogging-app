@@ -19,16 +19,16 @@ describe "drafts index", :type => :feature do
   it "a draft can be created using mark down" do
     visit '/'
 
-    within(".post-form") do
+    within(".new_post") do
       fill_in 'Title', with: 'New Post'
-      fill_in 'Body', with: '##### This is an H5'
+      fill_in 'Body', with: '#### This is an H4'
       fill_in 'Author', with: 'Bro'
       click_button 'New Post'
     end
     expect(page).to have_content('Post Created!')
 
-    within('h5') do
-      expect(page).to have_content('This is an H5')
+    within('h4') do
+      expect(page).to have_content('This is an H4')
     end
   end
 end
@@ -40,14 +40,14 @@ describe "drafts show", :type => :feature do
   end
 
   it "can publish a draft" do
-    click_link_or_button 'Publish Post'
+    click_link_or_button 'Publish'
 
     expect(current_path).to eq('/')
     expect(page).to have_content('Post has been published!')
   end
 
   it "can delete a draft on the draft post show page" do
-    click_link_or_button 'Delete'
+    page.find('.delete-button').click
     expect(current_path).to eq(root_path)
     expect(page).to have_content('Post Deleted!')
   end
@@ -71,7 +71,7 @@ describe "drafts show", :type => :feature do
   it "can delete a draft post" do
     expect(Post.count).to eq(1)
 
-    click_link_or_button 'Delete'
+    page.find('.delete-button').click
 
     expect(current_path).to eq('/')
     expect(Post.count).to eq(0)

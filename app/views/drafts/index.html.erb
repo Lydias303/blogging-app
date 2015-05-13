@@ -1,20 +1,27 @@
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
-   <h1>Draft Posts</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="well">
-      <ul class="post-display">
+  <div class="col-md-12 well">
+    <h1>Draft Posts</h1>
+    <table id="post-table" class="table table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Body</th>
+          <th>Number of Comments</th>
+          <th>Tags</th>
+        </tr>
+      </thead>
+      <tbody>
         <% @posts.each do |post| %>
-        <li class="title"><h4><%= link_to post.title, draft_path(post) %></h4></li>
-        <li class="post-body"><%= markdown(post.body).html_safe %></li>
-        <li class="author"><%= post.author %></li>
-        <li><%= post.status %></li>
+          <tr>
+            <td class="title"><%= link_to post.title, draft_path(post) %></td>
+            <td class="post-body"><%= markdown(post.body).html_safe %></td>
+            <td class="author"><%= post.author %></td>
+            <td><%= post.comments.count %></td>
+            <td><%= post.print_tags %></td>
+          </tr>
         <% end %>
-        <br/>
-      </ul>
-    </div>
+      </tbody>
+    </table>
   </div>
 </div>

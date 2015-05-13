@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.published
+    @tags = Tag.all
   end
 
   def create

@@ -46,4 +46,32 @@ describe "comments", :type => :feature do
 
     expect(Comment.count).to eq(0)
   end
+
+  it "can take the user to an edit comment page" do
+    post = create(:post)
+    comment = create(:comment, post_id: post.id)
+      visit post_path(post)
+    expect(Comment.count).to eq(1)
+
+    click_link_or_button 'Edit Comment'
+
+    expect(current_path).to eq(edit_post_comment_path(post, comment))
+  end
+
+
+    it "can take the user to an edit comment page" do
+      post = create(:post)
+      comment = create(:comment, post_id: post.id)
+
+      visit (edit_post_comment_path(post, comment))
+      within(".edit-comment") do
+        fill_in 'Body', with: 'I like it'
+        fill_in 'Author name', with: 'Miss Lady'
+        click_button 'Update Comment'
+      end
+
+      expect(current_path).to eq(post_path(post))
+      expect(page).to have_content('I like it')
+      expect(page).to have_content('Comment Updated!')
+    end
 end
