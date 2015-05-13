@@ -48,8 +48,17 @@ body{
   background-color: #f4ad49;
   border-bottom:2px solid #c38a3a;
 }
+
+.btn-sunny-tag {
+  background-color: #f4ad49;
+  border-bottom:2px solid #c38a3a;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
 #new-post-form.navbar-nav>li {
-  width: 1160px;
+  width: 1170px;
+  margin-left: -18px;
 }
 
 form#new_post.new_post {

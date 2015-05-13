@@ -9,9 +9,9 @@
   </thead>
   <tfoot>
     <tr>
-      <div type="button" class="btn btn-sunny btn-xs text-uppercase"><%= link_to 'All', '#', class: 'color-links filter-tag' %></div>
+      <div type="button" class="btn btn-sunny-tag btn-xs text-uppercase"><%= link_to 'All', '#', class: 'color-links filter-tag' %></div>
       <% @tags.each do |tag| %>
-        <div type="button" class="btn btn-sunny btn-xs text-uppercase"><%= link_to tag.name, '#', class: 'color-links filter-tag' %></div>
+        <div type="button" class="btn btn-sunny-tag btn-xs text-uppercase"><%= link_to tag.name, '#', class: 'color-links filter-tag' %></div>
       <% end %>
     </tr>
   </tfoot>
