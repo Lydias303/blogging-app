@@ -9,10 +9,6 @@ describe "posts index", :type => :feature do
   it "has all posts displayed on index" do
     expect(page).to have_content('Blog Posts')
 
-    within(".post-body") do
-      expect(page).to have_content('This is a post!')
-    end
-
     within(".title") do
       expect(page).to have_content('My Post')
     end
@@ -56,8 +52,8 @@ describe "posts index", :type => :feature do
   it "can display a published post created with markdown" do
 
     within(".new_post") do
-      fill_in 'Title', with: 'New Post'
-      fill_in 'Body', with: '##### This is an H5'
+      fill_in 'Title', with: 'Title'
+      fill_in 'Body', with: '###### This is an H6'
       fill_in 'Author', with: 'Bro'
       click_button 'New Post'
     end
@@ -68,8 +64,10 @@ describe "posts index", :type => :feature do
 
     expect(current_path).to eq('/')
 
-    within('h5') do
-      expect(page).to have_content('This is an H5')
+    click_link_or_button('Title')
+
+    within('h6') do
+      expect(page).to have_content('This is an H6')
     end
   end
 end

@@ -4,6 +4,7 @@
       <li><h1> <%= @post.title %><%= image_tag @post.avatar.url(:square), class: "img-circle draft-img" %></h1></li>
       <li class="post-body"><%= markdown(@post.body).html_safe %></li>
       <li><h5> By <%= @post.author %></h5></li>
+      <li><h5><%= @post.print_tags %></h5></li>
       <li id="edit-post" type="button" class="btn btn-fresh btn-sm"><%= link_to 'Edit', edit_post_path(@post), class: 'color-links' %></li>
       <li id="delete-post" type="button" class="btn btn-sunny btn-sm"><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, post_path(@post), method: 'delete', class: 'color-links delete-button' %></li>
       <li type="button" class="btn btn-sky btn-sm"><%= link_to '<i class="fa fa-arrow-circle-o-right"></i> Publish'.html_safe, drafts_path(post_id: @post.id), method: 'post', class: 'color-links publish-button' %></li>

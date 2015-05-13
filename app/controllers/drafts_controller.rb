@@ -1,6 +1,7 @@
 class DraftsController < ApplicationController
   def index
     @posts = Post.draft
+    @tags = Tag.all
   end
 
   def show
@@ -10,7 +11,7 @@ class DraftsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @post.update_attribute(:status, 'published')
-    
+
     flash[:notice] = "Post has been published!"
     redirect_to root_path
   end
