@@ -25,14 +25,13 @@ describe 'tags index', :type => :feature do
     expect(Tag.count).to eq(0)
   end
 
-  xit "can delete a comment" do
-    post = create(:post)
-    comment = create(:comment, post_id: post.id)
-      visit post_path(post)
-    expect(Comment.count).to eq(1)
+  it 'can display tags on the index page' do
+    tag = create(:tag)
+    second_tag = create(:tag, name: 'new tag')
 
-    click_link_or_button 'Delete Comment'
+    visit tags_path
 
-    expect(Comment.count).to eq(0)
+    expect(page).to have_content(tag.name)
+    expect(page).to have_content(second_tag.name)
   end
 end
