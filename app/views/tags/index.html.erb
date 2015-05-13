@@ -1,0 +1,16 @@
+<div class="row">
+  <h1>Tags</h1>
+  <div class="col-md-4 col-md-offset-1 well tag-create">
+    <%= bootstrap_form_for(@tag) do |f| %>
+      <%= f.text_field :name %>
+      <%= f.submit "Create Tag" %>
+    <% end %>
+  </div>
+  <div class="col-md-4 col-md-offset-1 well tag-index">
+    <ul>
+      <% @tags.each do |tag| %>
+        <li><%= tag.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
