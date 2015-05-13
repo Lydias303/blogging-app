@@ -15,6 +15,15 @@ describe "comments", :type => :feature do
     expect(page).to have_content('Your Comment Has Been Added')
   end
 
+  it "cannot create a comment with blank fields" do
+    within(".comment-create") do
+      fill_in 'Body', with: 'Jolly Good Blog Post'
+      fill_in 'Author name', with: ' '
+      click_button 'Add Comment'
+    end
+    expect(page).to have_content('Unable to add Comment')
+  end
+
   it "can create a comment on a post show page with markdown" do
     within(".comment-create") do
       fill_in 'Body', with: '###### This is an H6'

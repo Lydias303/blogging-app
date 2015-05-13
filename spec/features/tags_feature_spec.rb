@@ -13,6 +13,14 @@ describe 'tags index', :type => :feature do
     expect(page).to have_content('Tag Created!')
   end
 
+  it 'cannot create a tag when name is blank' do
+    within('.tag-create') do
+      fill_in 'Name', with: ' '
+      click_button 'Create Tag'
+    end
+    expect(page).to have_content('Unable to create Tag!')
+  end
+
   it 'can delete a tag' do
     tag = create(:tag)
     visit tags_path
