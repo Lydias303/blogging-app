@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-  has_many :comments, dependent: :destroy
+  has_many          :comments, dependent: :destroy
+  has_many          :post_tags
+  has_many          :tags, :through => :posts_tags
   has_attached_file :avatar, styles: {
     thumb: '100x100>',
     square: '200x200#',
