@@ -38,5 +38,16 @@ RSpec.describe Post, type: :model do
       expect(post).to_not be_valid
       expect(second_post).to_not be_valid
     end
+
+    it "has a tag printer helper method" do
+      tag = create(:tag, name: 'food')
+      tag2 = create(:tag, name: 'drink')
+      post = create(:post)
+
+      post.tags << tag
+      post.tags << tag2
+
+      expect(post.print_tags).to eq('food, drink')
+    end
   end
 end
