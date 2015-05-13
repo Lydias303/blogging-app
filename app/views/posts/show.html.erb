@@ -3,7 +3,7 @@
     <ul>
       <li><h1> <%= @post.title %><%= image_tag @post.avatar.url(:square), class: "img-circle"%></h1></li>
       <li class="post-body"><%= markdown(@post.body).html_safe %></li>
-      <li class="author-show">By <%= @post.author %></li>
+      <li class="author-show">By <%= markdown(@post.author).html_safe %></li>
       <li><%= @post.print_tags %></li>
       <li id="edit-post" type="button" class="btn btn-fresh btn-sm"><%= link_to 'Edit', edit_post_path(@post), class: 'color-links' %></li>
       <li id="delete-post" type="button" class="btn btn-sunny btn-sm"><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, post_path(@post), method: 'delete', class: 'color-links delete-button' %></li>
