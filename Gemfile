@@ -28,6 +28,9 @@ gem "figaro"
 
 gem 'pry'
 
+gem 'jquery-datatables-rails', '~> 3.3.0'
+
+
 group :development, :test do
 
   gem 'capybara'
